@@ -4,13 +4,11 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -47,18 +45,39 @@ object Alert {
      * @param msg message which will display on screen
      */
     fun showToast(context: Context, msg: String) {
-        val toast: Toast = customToast(context,msg,R.color.white,R.drawable.ic_check_white_24dp,R.color.white,false)
+        val toast: Toast = customToast(
+            context,
+            msg,
+            R.color.color_white,
+            false,
+            R.drawable.ic_check_white_24dp,
+            R.color.color_white,
+            R.color.color_grey
+        )
         toast.show()
     }
 
+    fun showSuccessToast(context: Context, msg: String) {
+        val toast: Toast = customToast(
+            context,
+            msg,
+            R.color.color_white,
+            true,
+            R.drawable.ic_check_white_24dp,
+            R.color.color_white,
+            R.color.color_success
+        )
+        toast.show()
+    }
 
     private fun customToast(
         context: Context,
         text: CharSequence,
         textColor: Int,
+        hasIcon: Boolean,
         icon: Int,
         iconColor: Int,
-        hasIcon: Boolean
+        bgColor: Int
     ): Toast {
         val layoutInflater = LayoutInflater.from(context)
         val layout =
@@ -67,21 +86,24 @@ object Alert {
                 , null
             ).findViewById<ConstraintLayout>(R.id.container)
 
+        val backgroundDrawable = layout.background.current as GradientDrawable
+        backgroundDrawable.setColor(ContextCompat.getColor(context, bgColor))
         if (hasIcon) {
-            val drawable = ContextCompat.getDrawable(context,R.drawable.toast_round_bg)
-            drawable?.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context,iconColor),PorterDuff.Mode.MULTIPLY)
-            layout.background = drawable
-            layout.imvIcon.setImageDrawable(ContextCompat.getDrawable(context,icon))
+            layout.imvIcon.setImageDrawable(ContextCompat.getDrawable(context, icon))
+            layout.imvIcon.colorFilter = PorterDuffColorFilter(
+                ContextCompat.getColor(context, iconColor),
+                PorterDuff.Mode.SRC_IN
+            )
         } else {
             layout.imvIcon.visibility = View.GONE
         }
 
-        layout.tvMessage.setTextColor(ContextCompat.getColor(context,textColor))
+        layout.tvMessage.setTextColor(ContextCompat.getColor(context, textColor))
         layout.tvMessage.text = text
 
         val toast = Toast(context)
         toast.duration = Toast.LENGTH_LONG
-        toast.setGravity(Gravity.CENTER,0,0)
+        toast.setGravity(Gravity.CENTER, 0, 0)
         toast.view = layout
 
         return toast

@@ -4,5 +4,6 @@
     <color name="color_error">#D50000</color>
     <color name="color_success">#00C853</color>
     <color name="color_warning">#FFAB00</color>
-    <color name="white">#FFF</color>
+    <color name="color_white">#FFF</color>
+    <color name="color_grey">#81DBD3D3</color>
 </resources>
