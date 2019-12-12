@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Alert.logD("MainActivity","message")
-        Alert.showToast(this,"Hello Toast!")
+        Alert.showSuccessToast(this,"Hello Toast!")
     }
 }
