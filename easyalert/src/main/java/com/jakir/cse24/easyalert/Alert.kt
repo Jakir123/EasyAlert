@@ -70,6 +70,19 @@ object Alert {
         toast.show()
     }
 
+    fun showErrorToast(context: Context, msg: String) {
+        val toast: Toast = customToast(
+            context,
+            msg,
+            R.color.color_white,
+            true,
+            R.drawable.ic_error_white_24dp,
+            R.color.color_white,
+            R.color.color_error
+        )
+        toast.show()
+    }
+
     private fun customToast(
         context: Context,
         text: CharSequence,
