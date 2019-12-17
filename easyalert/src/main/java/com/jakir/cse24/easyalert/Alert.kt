@@ -130,7 +130,7 @@ object Alert {
      * @param msg   alert message
      * @param icon  alert icon
      */
-    fun showAlert(context: Context, title: String, msg: String, icon: Int) {
+    fun showAlert(context: Context, msg: String, title: String = "Easy Alert",  icon: Int = android.R.drawable.ic_dialog_alert) {
         val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
         dialog.setTitle(title)
         dialog.setIcon(icon)
@@ -142,4 +142,6 @@ object Alert {
         }
         dialog.show()
     }
+
+
 }
