@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.custom_toast.view.*
 object Alert {
     /**
      * This method is for printing a ERROR log message on the system console
-     * Created by Md. Jakir Hossain on 02/05/2019.
+     * @author Md. Jakir Hossain on 02/05/2019.
      *
      * @param tag Used to identify the source of a log message. It usually identifies the class or activity where the log call occurs.
      * @param msg The message you would like logged.
@@ -29,7 +29,7 @@ object Alert {
 
     /**
      * This method is for printing a DEBUG log message on the system console
-     * Created by Md. Jakir Hossain on 02/05/2019.
+     * @author Md. Jakir Hossain on 02/05/2019.
      *
      * @param tag Used to identify the source of a log message. It usually identifies the class or activity where the log call occurs.
      * @param msg The message you would like logged.
@@ -40,7 +40,7 @@ object Alert {
 
     /**
      * This method is for showing message using android {@link Toast}
-     * Created by Md. Jakir Hossain on 29/04/2019.
+     * @author Md. Jakir Hossain on 29/04/2019.
      *
      * @param msg message which will display on screen
      */
@@ -57,6 +57,13 @@ object Alert {
         toast.show()
     }
 
+    /**
+     * This function is for showing success {@link Toast}.
+     * @author Md. Jakir Hossain on 18/12/2019.
+     *
+     * @param context application context.
+     * @param msg message that should be shown in toast.
+     */
     fun showSuccessToast(context: Context, msg: String) {
         val toast: Toast = customToast(
             context,
@@ -70,6 +77,13 @@ object Alert {
         toast.show()
     }
 
+    /**
+     * This function is for showing error {@link Toast}.
+     * @author Md. Jakir Hossain on 18/12/2019.
+     *
+     * @param context application context.
+     * @param msg message which should be shown in toast.
+     */
     fun showErrorToast(context: Context, msg: String) {
         val toast: Toast = customToast(
             context,
@@ -83,6 +97,19 @@ object Alert {
         toast.show()
     }
 
+    /**
+     * This function is for creating Custom {@link Toast}
+     * @author Md. Jakir Hossain on 18/12/2019.
+     *
+     * @param context application context.
+     * @param text message for showing in toast.
+     * @param textColor message text color.
+     * @param hasIcon is toast has icon or not.
+     * @param icon icon id(int).
+     * @param iconColor icon tint color.
+     * @param bgColor toast background color.
+     * @return an instance of {@link Toast}.
+     */
     private fun customToast(
         context: Context,
         text: CharSequence,
@@ -124,11 +151,11 @@ object Alert {
 
     /**
      * This method is for showing error/warning using alert dialog.
-     * Created by Md. Jakir Hossain on 29/04/2019.
+     * @author Md. Jakir Hossain on 29/04/2019.
      *
-     * @param title alert title
-     * @param msg   alert message
-     * @param icon  alert icon
+     * @param title alert title.
+     * @param msg   alert message.
+     * @param icon  alert icon.
      */
     fun showAlert(context: Context, msg: String, title: String = "Easy Alert",  icon: Int = android.R.drawable.ic_dialog_alert) {
         val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
