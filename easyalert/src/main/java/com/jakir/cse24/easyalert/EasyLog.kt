@@ -11,7 +11,7 @@ object EasyLog {
      * @param msg The message you would like logged.
      */
     fun logE(tag: String, msg: String) {
-        Log.e("Easy EasyAlert $tag", msg)
+        Log.e("EasyAlert $tag", msg)
     }
 
     /**
@@ -22,7 +22,7 @@ object EasyLog {
      * @param msg The message you would like logged.
      */
     fun logD(tag: String, msg: String) {
-        Log.d("Easy EasyAlert $tag", msg)
+        Log.d("EasyAlert $tag", msg)
     }
 
     /**
@@ -33,7 +33,7 @@ object EasyLog {
      * @param msg The message you would like logged.
      */
     fun logI(tag: String, msg: String) {
-        Log.i("Easy EasyAlert $tag", msg)
+        Log.i("EasyAlert $tag", msg)
     }
 
     /**
@@ -44,7 +44,7 @@ object EasyLog {
      * @param msg The message you would like logged.
      */
     fun logW(tag: String, msg: String) {
-        Log.w("Easy EasyAlert $tag", msg)
+        Log.w("EasyAlert $tag", msg)
     }
 
     /**
@@ -55,6 +55,6 @@ object EasyLog {
      * @param msg The message you would like logged.
      */
     fun logV(tag: String, msg: String) {
-        Log.v("Easy EasyAlert $tag", msg)
+        Log.v("EasyAlert $tag", msg)
     }
 }
