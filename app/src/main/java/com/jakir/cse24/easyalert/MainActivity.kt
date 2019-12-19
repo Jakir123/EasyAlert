@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         EasyLog.logD("MainActivity","message")
-        EasyAlert.showErrorToast(this,"Hello Toast!")
+        EasyToast.showErrorToast(this,"Hello Toast!")
     }
 }

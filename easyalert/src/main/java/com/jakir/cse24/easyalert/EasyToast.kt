@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.custom_toast.view.*
 
 object EasyToast {
     /**
-     * This method is for showing message using android {@link Toast}
+     * This method is for showing message using android [Toast]
      * @author Md. Jakir Hossain on 29/04/2019.
      *
      * @param msg message which will display on screen
@@ -33,7 +33,7 @@ object EasyToast {
     }
 
     /**
-     * This function is for showing success {@link Toast}.
+     * This function is for showing success [Toast].
      * @author Md. Jakir Hossain on 18/12/2019.
      *
      * @param context application context.
@@ -53,7 +53,7 @@ object EasyToast {
     }
 
     /**
-     * This function is for showing error {@link Toast}.
+     * This function is for showing error [Toast].
      * @author Md. Jakir Hossain on 18/12/2019.
      *
      * @param context application context.
@@ -73,7 +73,7 @@ object EasyToast {
     }
 
     /**
-     * This function is for creating Custom {@link Toast}
+     * This function is for creating Custom [Toast]
      * @author Md. Jakir Hossain on 18/12/2019.
      *
      * @param context application context.

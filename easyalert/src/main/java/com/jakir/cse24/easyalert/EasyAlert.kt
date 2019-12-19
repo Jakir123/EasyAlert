@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.custom_toast.view.*
 
 object EasyAlert {
     /**
-     * This method is for showing error/warning using alert dialog.
+     * This method is for showing error/warning using [AlertDialog].
      * @author Md. Jakir Hossain on 29/04/2019.
      *
      * @param title alert title.
@@ -36,6 +36,5 @@ object EasyAlert {
         }
         dialog.show()
     }
-
 
 }
