@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Alert.logD("MainActivity","message")
-        Alert.showErrorToast(this,"Hello Toast!")
+        EasyLog.logD("MainActivity","message")
+        EasyAlert.showErrorToast(this,"Hello Toast!")
     }
 }
