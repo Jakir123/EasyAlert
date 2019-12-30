@@ -13,11 +13,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun show(view: View) {
-        EasyLog.logV("MainActivity","Verbose message")
-        EasyLog.logI("MainActivity","Info message")
-        EasyLog.logD("MainActivity","Debug message")
-        EasyLog.logW("MainActivity","Debug message")
-        EasyLog.logE("MainActivity","Error message")
+        EasyLog.logV("Verbose message","MainActivity")
+        EasyLog.logI("Info message")
+        EasyLog.logD("Debug message","MainActivity")
+        EasyLog.logW("Debug message","MainActivity")
+        EasyLog.logE("Error message","MainActivity")
         EasyToast.showToast(this,"Hello Toast!")
     }
 }
