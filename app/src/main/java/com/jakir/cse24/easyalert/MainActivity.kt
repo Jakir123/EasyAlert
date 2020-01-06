@@ -1,5 +1,8 @@
 package com.jakir.cse24.easyalert
 
+import android.graphics.Color
+import android.graphics.Typeface
+import android.icu.lang.UCharacter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        EasyToast.Customization.instance
+            .hasIcon(true)
+            .setIcon(R.drawable.ic_menu_arrow_up_black_24dp)
+            .setBacgroudColor(R.color.color_black)
+            .setTextColor(R.color.color_white)
+            .setTextSize(18)
+
     }
 
     fun show(view: View) {
@@ -19,5 +29,7 @@ class MainActivity : AppCompatActivity() {
         EasyLog.logW("Debug message","MainActivity")
         EasyLog.logE("Error message","MainActivity")
         EasyToast.showToast(this,"Hello Toast!")
+
+
     }
 }

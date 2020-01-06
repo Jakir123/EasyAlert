@@ -23,7 +23,8 @@
 
     <ImageView
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvMessage"
+        app:layout_constraintBottom_toBottomOf="@id/tvMessage"
         android:id="@+id/imvIcon"
         android:tint="@android:color/white"
         android:src="@drawable/ic_check_white_24dp"
