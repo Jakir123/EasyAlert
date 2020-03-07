@@ -7,6 +7,7 @@ import android.os.Build
 
 
 object EasyNetwork {
+
     private fun isInternetAvailable(context: Context): Boolean {
         var result = false
         val connectivityManager =
