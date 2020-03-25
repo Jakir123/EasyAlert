@@ -15,11 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:paddingEnd="3dp"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imvIcon"
         android:layout_gravity="center"
-        android:text="Hello this is a sample toast message" />
+        android:text="Hello this is a sample toast" />
 
     <ImageView
         app:layout_constraintStart_toStartOf="parent"

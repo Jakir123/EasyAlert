@@ -9,10 +9,37 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show"
+        android:text="Show ProgressDialog"
+        app:layout_constraintBottom_toTopOf="@id/btnShowAlert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="showProgressDialog"
+        app:layout_constraintRight_toRightOf="parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Alert"
+        android:id="@+id/btnShowAlert"
+        app:layout_constraintBottom_toTopOf="@id/btnShowToast"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="showAlert"
+        app:layout_constraintRight_toRightOf="parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Toast"
+        android:id="@+id/btnShowToast"
+        app:layout_constraintBottom_toTopOf="@id/btnShowLogs"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="showToast"
+        app:layout_constraintRight_toRightOf="parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Logs"
+        android:id="@+id/btnShowLogs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:onClick="show"
+        android:onClick="showLogs"
         app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

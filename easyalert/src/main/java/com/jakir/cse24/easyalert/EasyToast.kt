@@ -21,7 +21,7 @@ class EasyToast {
         private val DEFAULT_TYPEFACE =
             Typeface.create("sans-serif-condensed", Typeface.NORMAL)
         private var toastTypeface = DEFAULT_TYPEFACE
-        private var textSize = 16
+        private var textSize = 14
         private var textColor = R.color.color_black
         private var hasToastIcon = false
         private var toastIcon = R.drawable.ic_check_white_24dp
