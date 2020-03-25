@@ -5,6 +5,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.view.View
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 object EasyAlert {
@@ -15,26 +17,78 @@ object EasyAlert {
      * This method is for showing error/warning using [AlertDialog].
      * @author Md. Jakir Hossain on 29/04/2019.
      *
-     * @param title alert title.
-     * @param msg   alert message.
-     * @param icon  alert icon.
+     * @param context application/activity [Context]
+     * @param title alert dialog title.
+     * @param msg   alert dialog message.
+     * @param icon  alert dialog icon.
+     * @return [Boolean] true if press on ok otherwise false
      */
     fun showAlert(
         context: Context,
+        title: String = "EasyAlert",
+        msg: String,
+        icon: Int = android.R.drawable.ic_dialog_alert
+    ) : MutableLiveData<Boolean>{
+       return showAlert(context,msg,title,icon,false)
+    }
+
+    /**
+     * This method is for showing error/warning using [AlertDialog].
+     * @author Md. Jakir Hossain on 25/03/2020.
+     *
+     * @param context application/activity [Context]
+     * @param title alert dialog title.
+     * @param msg   alert dialog message.
+     * @param icon  alert dialog icon.
+     * @return [Boolean] true if press on ok otherwise false
+     */
+    fun showAlertWithChoice(
+        context: Context,
+        title: String,
+        msg: String,
+        icon: Int = android.R.drawable.ic_dialog_alert
+    ): MutableLiveData<Boolean> {
+        return showAlert(context,msg,title,icon,true)
+    }
+
+    /**
+     * This method is for showing error/warning using [AlertDialog].
+     * @author Md. Jakir Hossain on 25/03/2020.
+     *
+     * @param context application/activity [Context]
+     * @param title alert dialog title.
+     * @param msg   alert dialog message.
+     * @param icon  alert dialog icon.
+     * @param isChoice for adding cancel button.
+     * @return [Boolean] true if user press ok, otherwise false.
+     */
+   private fun showAlert(
+        context: Context,
         msg: String,
         title: String = "EasyAlert",
-        icon: Int = android.R.drawable.ic_dialog_alert
-    ) {
-        val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
+        icon: Int = android.R.drawable.ic_dialog_alert,
+        isChoice:Boolean
+    ): MutableLiveData<Boolean> {
+        val response = MutableLiveData<Boolean>()
+        val dialog = MaterialAlertDialogBuilder(context)
         dialog.setTitle(title)
-        dialog.setIcon(icon)
         dialog.setMessage(msg)
+        dialog.setIcon(icon)
         dialog.setPositiveButton(
             android.R.string.ok
         ) { dialogInterface, _ ->
+            response.value = true
             dialogInterface.dismiss()
         }
+        if (isChoice){
+            dialog.setCancelable(false)
+            dialog.setNegativeButton(android.R.string.cancel) { dialogInterface, i ->
+                response.value = false
+                dialogInterface.dismiss()
+            }
+        }
         dialog.show()
+        return response
     }
 
     /**
@@ -52,7 +106,7 @@ object EasyAlert {
      * This method is for showing progress dialog without message using [AlertDialog].
      * @author Md. Jakir Hossain on 7/03/2020.
      *
-     * @param context activity refernce.
+     * @param context activity reference.
      */
     fun showProgressDialog(context: Activity) {
         showProgressDialog(context, "", false)
@@ -67,11 +121,11 @@ object EasyAlert {
      * @param isMessageAvailable is for showing or hiding message textview.
      */
     private fun showProgressDialog(
-        context: Activity,
+        activity: Activity,
         message: String,
         isMessageAvailable: Boolean
     ) {
-        val layoutInflater = context.layoutInflater
+        val layoutInflater = activity.layoutInflater
         val view = layoutInflater.inflate(R.layout.progress_dialog, null)
         val tvMessage = view.findViewById<TextView>(R.id.tvProgressMessage)
         if (isMessageAvailable) {
@@ -79,11 +133,11 @@ object EasyAlert {
         } else {
             tvMessage.visibility = View.GONE
         }
-        val alert = AlertDialog.Builder(context)
+        val alert = AlertDialog.Builder(activity)
         alert.setCancelable(false).setView(view)
         dialog?.dismiss()
         dialog = alert.create()
-        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+//        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         dialog?.show()
     }
 
