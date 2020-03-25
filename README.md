@@ -18,6 +18,6 @@ allprojects {
 **Step 2.** Add the dependency
 ``` groovy
 dependencies {
-  implementation 'com.github.Jakir123:EasyAlert:v1.0'
+  implementation 'com.github.Jakir123:EasyAlert:1.1.0'
 }
 ```
