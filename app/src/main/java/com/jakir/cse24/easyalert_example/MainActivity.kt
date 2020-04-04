@@ -1,13 +1,14 @@
-package com.jakir.cse24.easyalert
+package com.jakir.cse24.easyalert_example
 
-import android.graphics.Color
-import android.graphics.Typeface
-import android.icu.lang.UCharacter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
+import com.jakir.cse24.easyalert.EasyAlert
+import com.jakir.cse24.easyalert.EasyLog
+import com.jakir.cse24.easyalert.EasyToast
+import com.jakir.cse24.easyalert_example.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,11 +35,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showProgressDialog(view: View) {
-        EasyAlert.showProgressDialog(this, "showing progress dialog")
+        EasyAlert.showProgressDialog(
+            this,
+            "showing progress dialog"
+        )
         // without message pass only activity reference
         // EasyAlert.showProgressDialog(this)
         Handler().postDelayed({
-           EasyAlert.hideProgressDialog()
+            EasyAlert.hideProgressDialog()
         }, 5000) // 5 sec
     }
 
@@ -59,13 +63,19 @@ class MainActivity : AppCompatActivity() {
                     ) // also can observe this for doing something when user click on ok.
                 } else {
                     // handle cancel button click
-                    EasyToast.showToast(this, "You clicked on cancel button!") // default toast
+                    EasyToast.showToast(
+                        this,
+                        "You clicked on cancel button!"
+                    ) // default toast
                 }
             })
     }
 
     fun showToast(view: View) {
-        EasyToast.showInfoToast(this,"Hello info toast...long message testing....... is it okay now ............ long long message")
+        EasyToast.showInfoToast(
+            this,
+            "Hello info toast...long message testing....... is it okay now ............ long long message"
+        )
 //            EasyToast.showErrorToast(this,"Hello error toast...")
 //            EasyToast.showSuccessToast(this,"Hello success toast...")
 //            EasyToast.showWarningToast(this,"Hello warning toast...")
