@@ -238,7 +238,7 @@ class EasyToast {
             return this
         }
 
-        fun setBacgroudColor(color: Int):Customization{
+        fun setBackgroundColor(color: Int):Customization{
             backgroundColor = color
             return this
         }
