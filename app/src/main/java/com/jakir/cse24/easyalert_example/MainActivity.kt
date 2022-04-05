@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer
 import com.jakir.cse24.easyalert.EasyAlert
 import com.jakir.cse24.easyalert.EasyLog
 import com.jakir.cse24.easyalert.EasyToast
-import com.jakir.cse24.easyalert_example.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         EasyToast.Customization.instance
             .hasIcon(true)
             .setIcon(R.drawable.ic_menu_arrow_up_black_24dp)
-            .setBacgroudColor(R.color.color_black)
+            .setBackgroundColor(R.color.color_black)
             .setTextColor(R.color.color_white)
             .setTextSize(14)
 
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     fun showAlert(view: View) {
         // here icon is optional
+        EasyAlert.Customization.instance.setTheme(true)
         EasyAlert.showAlertWithChoice(
             this,
             "Alert with Choices",
